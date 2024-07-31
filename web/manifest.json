@@ -1,6 +1,6 @@
 {
-    "name": "anchor_app",
-    "short_name": "anchor_app",
+    "name": "anchor",
+    "short_name": "anchor",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

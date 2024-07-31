@@ -1,4 +1,4 @@
-package com.example.anchor_app
+package com.example.anchor
 
 import io.flutter.embedding.android.FlutterActivity
 
