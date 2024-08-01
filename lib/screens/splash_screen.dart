@@ -1,4 +1,5 @@
 import 'package:anchor/screens/home_screen.dart';
+import 'package:anchor/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     Future.delayed(const Duration(seconds: 2), () { // TODO: Change time to when data is loaded
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (_) => const HomeScreen(),
+        builder: (_) => const LoginScreen(),
       ));
     });
   }
