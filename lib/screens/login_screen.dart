@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
         body: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: Container(
-            color: Colors.transparent, // Needed to make the GestureDetector work on the entire screen
+            color: Colors.transparent, // Gesture detector hitbox
             height: MediaQuery.of(context).size.height,
             child: SingleChildScrollView(
               child: Container(
@@ -39,17 +40,19 @@ class _LoginScreenState extends State<LoginScreen> {
                         TextFormField(
                           obscureText: _obscureText,
                           decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.lock),
+                            prefixIcon: const Icon(Icons.lock),
                             labelText: 'Password',
                             hintText: 'Password',
-                            border: OutlineInputBorder(),
+                            border: const OutlineInputBorder(),
                             suffixIcon: IconButton(
                               onPressed: () {
                                 setState(() {
                                   _obscureText = !_obscureText;
                                 });
                               },
-                              icon: Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
+                              icon: Icon(_obscureText
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
                             ),
                           ),
                         ),
@@ -61,10 +64,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               // TODO: Implement forgot password functionality
                               print('Forgot password pressed');
                             },
-                            child: Text('Forgot Password?'),
                             style: TextButton.styleFrom(
                               foregroundColor: Colors.blue,
                             ),
+                            child: const Text('Forgot Password?'),
                           ),
                         ),
                         const SizedBox(height: 10.0),
@@ -76,16 +79,29 @@ class _LoginScreenState extends State<LoginScreen> {
                               print('Login pressed');
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF5ADBB5),
+                              backgroundColor: const Color(0xFF5ADBB5),
                               foregroundColor: Colors.white,
-                              padding: EdgeInsets.symmetric(vertical: 11.0),
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 11.0),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(4.0),
                               ),
                             ),
-                            child: Text('Login'),
+                            child: const Text('Login'),
                           ),
                         ),
+                        const SizedBox(height: 20.0),
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) => const HomeScreen()),
+                                );
+                              },
+                              child: const Text("Dev login bypass")),
+                        )
                       ],
                     ),
                   ),
